@@ -55,8 +55,8 @@
 
     <!-- Inline instructions for Biography -->
     <div class="control">
-      <label for="biography">Biography</label>
-      <textarea id="biography" name="biography" aria-describedby="bioHelp"></textarea>
+      <label for="biography">Biography <span class="required">*</span></label>
+      <textarea id="biography" name="biography" aria-describedby="bioHelp" aria-required="true"></textarea>
       <!-- Inline instruction accessible to screen readers -->
       <span id="bioHelp">Include examples of your skills in JavaScript.</span>
     </div>
@@ -139,6 +139,12 @@
 
         if (!$('#name').val().trim()) {
           showError('name', 'Please enter your name.');
+          valid = false;
+        }
+
+        // ✅ Biography validation added
+        if (!$('#biography').val().trim()) {
+          showError('biography', 'Please enter your biography.');
           valid = false;
         }
 
